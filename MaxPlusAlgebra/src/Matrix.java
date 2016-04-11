@@ -42,15 +42,20 @@ public class Matrix {
  	 * @param int col represents the columns of the matrix
      */
     public void scanMatrix(){
-       
-    	System.out.println("Enter the " + dimension + " x " + dimension + " matrix:");
-    	Scanner input = new Scanner(System.in);     
-        for (int row = 0; row < dimension; row++) {
-            for (int col = 0; col < dimension; col++){
-                setEdge(row, col, input.nextInt());
-            }
-        }
-    }
+    	System.out.println("Enter the " + dimension + " x " + dimension + " adjucency matrix:");
+		Scanner input = new Scanner(System.in);		
+		int temp; // temporary value of scanned integer.
+		for(int row = 0; row < dimension; row++) {
+			for(int col = 0; col < dimension; col++){
+	            temp = input.nextInt();
+	            while(temp != 0 && temp != 1){ // only ones and zeros are allowed in the adjacency matrix.
+	            	System.out.println("Please enter a valid value");
+	            	temp = input.nextInt();
+	            }
+	            setEdge(row,col,temp);
+			}	
+		}
+	}
     /**
      * Sets the value of the edge between vertex1 and vertex2
      * @param int vertex1
