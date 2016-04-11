@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Digraph {
 	private int[][] digraph; // adjacency matrix
+	private int dimension;
 	public Digraph(int dimension){
+		this.dimension = dimension;
 		digraph = new int[dimension][dimension];
 		for(int row = 0; row < dimension; row++){
 			for(int col = 0; col < dimension; col++){
@@ -10,6 +12,26 @@ public class Digraph {
 			}
 		}
 	}
+	
+	/**
+	 * Creates matrix of dim dimension, values are 0/1
+	 */
+	
+	public void scanMatrix(){
+		Scanner input = new Scanner(System.in);
+		int temp; // temporary value of scanned integer.
+		for(int row = 0; row < dimension; row++) {
+			for(int col = 0; col < dimension; col++){
+	            temp = input.nextInt();
+	            while(temp != 0 && temp != 1){ // only ones and zeros are allowed in the adjacency matrix.
+	            	System.out.println("Please enter a valid value");
+	            	temp = input.nextInt();
+	            }
+	            addEdge(row,col,temp);
+			}	
+		}
+	}
+	
 	/**
 	 * Adds edge of weight weight between vertex1 and vertex2 to digraph
 	 * @param int vertex1
