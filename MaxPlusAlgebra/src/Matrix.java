@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 /**
  * The Matrix class operates with square matrices.
- * @author metti
- *
  */
 
 
@@ -42,7 +40,6 @@ public class Matrix {
  	 * @param int col represents the columns of the matrix
      */
     public void scanMatrix(){
-    	System.out.println("Enter the " + dimension + " x " + dimension + " adjucency matrix:");
 		Scanner input = new Scanner(System.in);		
 		int temp; // temporary value of scanned integer.
 		for(int row = 0; row < dimension; row++) {
