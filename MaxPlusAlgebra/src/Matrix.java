@@ -74,6 +74,25 @@ public class Matrix {
 	public int getValueOf(int vertex1, int vertex2) {
 		return matrix[vertex1][vertex2];
 	}
+	
+    	/**
+     	* Takes a matrix from input and returns the square of it.
+     	* @param1 matrix -the matrix to be squared
+     	* @param2 dim - the dimension of the adjacency matrix
+     	* @param3 m - a matrix to save the squared matrix to it
+     	* @return Matrix m -the inputmatrix^2
+     	*/
+     	public Matrix squareMatrix(Matrix matrix){
+    		int dim = matrix.getDimension();
+    		Matrix m = new Matrix(dim);
+    		for(int i=0;i<dim;i++){
+     			for(int j=0;j<dim;j++){    			
+ 				m.setEdge(i, j, matrix.getValueOf(i, j)*matrix.getValueOf(i, j));
+	     		}
+	     	}
+		return m;
+     	}
+
 
 	/**
 	 * Prints out the matrix as a 2D array.
