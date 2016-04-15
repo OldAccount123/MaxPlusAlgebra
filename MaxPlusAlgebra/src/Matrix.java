@@ -75,6 +75,29 @@ public class Matrix {
 		return matrix[vertex1][vertex2];
 	}
 
+	 /**
+     * Takes a matrix from input and returns the square of it.
+     * @param matrix - the matrix to be squared
+     * @return Matrix m -the inputmatrix^2
+     */
+     public AdjacencyMatrix powerMatrix(Matrix matrix){
+    	 int dim = matrix.getDimension(); //the dimension of the adjacency matrix
+    	 AdjacencyMatrix m = new AdjacencyMatrix(dim);  //a matrix to save the powered matrix to it  	
+    	 int sum = 0;  //a helping variable to save the sum of the multiplications
+    	 //makes the row*column multiplications
+    	  for (int i=0;i<dim;i++){
+             for (int j=0;j<dim;j++){   
+                for (int k=0;k<dim;k++){
+                   sum = sum + matrix.getValueOf(i, k)*matrix.getValueOf(k, j);
+                }  
+                m.setEdge(i, j, sum);
+                sum = 0;
+             }
+          }
+		return m;    	
+     }
+	
+	
 	/**
 	 * Prints out the matrix as a 2D array.
 	 */
