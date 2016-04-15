@@ -46,8 +46,7 @@ public class KarpAlgorithm {
     			temp = temp.powerMatrix(temp);
     			listOfMatrices.add(new Matrix(dim).powerMatrix(temp));    		
     		}
-			return listOfMatrices;
-    	 
+		return listOfMatrices;
      	}
 
 }
