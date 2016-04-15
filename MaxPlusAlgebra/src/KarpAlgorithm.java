@@ -43,8 +43,8 @@ public class KarpAlgorithm {
     		temp = matrix;  //temporary matrix to save the A, A^2, A^3, ... A^dim matrices to it;
     		//takes the temp matrix and adds a new matrix-the powered temp matrix to the list
     		for(int i=0;i<dim+1;i++){
-    			temp = temp.squareMatrix(temp);
-    			listOfMatrices.add(new Matrix(dim).squareMatrix(temp));    		
+    			temp = temp.powerMatrix(temp);
+    			listOfMatrices.add(new Matrix(dim).powerMatrix(temp));    		
     		}
 			return listOfMatrices;
     	 
