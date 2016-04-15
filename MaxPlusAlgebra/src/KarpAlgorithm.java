@@ -22,11 +22,15 @@ public class KarpAlgorithm {
      * returns nested list of a first columns of a digraph.
      */
     public ArrayList<ArrayList<Integer>> getCols(AdjacencyMatrix adjMatrix){
-        ArrayList<ArrayList<Integer>> listOfCols = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> cols = new ArrayList<Integer>();
-        for(int i = 0; i != adjMatrix.getDimension()+1;i++){
-           
-        }
+        // a nested list to save the first columns of the powered matrices
+    	ArrayList<ArrayList<Integer>> listOfCols = new ArrayList<ArrayList<Integer>>();     
+    	int dim = adjMatrix.getDimension(); // the dimension of the adjacency matrix
+        for(int i=0;i<dim;i++){
+    		listOfCols.add(new ArrayList());
+        	for(int j=0;j<dim;j++){
+        		listOfCols.get(i).add(multiplyMatrix().get(i).getValueOf(j, 1));
+        	}
+        }        
         return listOfCols;
     }
     
@@ -41,11 +45,12 @@ public class KarpAlgorithm {
     	ArrayList<Matrix> listOfMatrices = new ArrayList(); //the list to save the powered matrices 
     	listOfMatrices.add(matrix);
     	AdjacencyMatrix temp = new AdjacencyMatrix(dim);
-    	temp = matrix;  //temporary matrix to save the A, A^2, A^3, ... A^dim matrices to it;
+    	//temporary matrix to save the A, A^2, A^3, ... A^dim matrices to it;
     	//takes the temp matrix and adds a new matrix-the powered temp matrix to the list
+		temp = matrix;
     	for(int i=0;i<dim+1;i++){
-    		temp = temp.squareMatrix(temp);
-    		listOfMatrices.add(new Matrix(dim).squareMatrix(temp));    		
+    		listOfMatrices.add(new Matrix(dim).powerMatrix(temp));
+    		temp = temp.powerMatrix(temp);    		
     	}
 		return listOfMatrices;
     	 
