@@ -9,9 +9,11 @@ public class Main {
         AdjacencyMatrix  upperValueMatrix = new AdjacencyMatrix(dimension); // matrix created by biggest numbers in the interval matrix
         upperValueMatrix.scanMatrix();	
         upperValueMatrix.printMatrix();
-        System.out.println("Enter lower values of the matrix");
+        /*System.out.println("Enter lower values of the matrix");
         AdjacencyMatrix lowerValueMatrix = new AdjacencyMatrix(dimension); // matrix created by lowest number in the interval matrix.
         lowerValueMatrix.scanMatrix();
-        lowerValueMatrix.printMatrix();
+        lowerValueMatrix.printMatrix();*/
+        KarpAlgorithm kA = new KarpAlgorithm(upperValueMatrix);
+        System.out.println(kA.getCols(upperValueMatrix));
 	}
 }
