@@ -44,12 +44,10 @@ public class Matrix {
 		for (int row = 0; row < getDimension(); row++) {
 			for (int col = 0; col < getDimension(); col++) {
 				temp = input.nextInt();
-				while (temp != 0 && temp != 1) { // only ones and zeros are
-													// allowed in the adjacency
-													// matrix.
+				/*while (temp != 0 && temp != 1) { //only ones and zeros are allowed in the adjacency matrix.												
 					System.out.println("Please enter a valid value");
 					temp = input.nextInt();
-				}
+				}*/
 				setEdge(row, col, temp);
 			}
 		}
@@ -76,19 +74,20 @@ public class Matrix {
 	}
 	
 	/**
-     * Takes a matrix from input and returns the square of it.
-     * @param matrix - the matrix to be squared
-     * @return Matrix m -the inputmatrix^2
+     * Multiplies 2 matrices from the input
+     * @param m1 - the matrix to be multiplied
+     * @param2 m2 - the second matrix
+     * @return Matrix  m1*m2
      */
-     public AdjacencyMatrix powerMatrix(Matrix matrix){
-    	 int dim = matrix.getDimension(); //the dimension of the adjacency matrix
+     public AdjacencyMatrix mulMatrix(Matrix m1 , Matrix m2){
+    	 int dim = m1.getDimension(); //the dimension of the adjacency matrix
     	 AdjacencyMatrix adjMatrix = new AdjacencyMatrix(dim);  //a matrix to save the powered matrix to it  	
     	 int sum = 0;  //a helping variable to save the sum of the multiplications
     	 //makes the row*column multiplications
     	  for (int i=0;i<dim;i++){
              for (int j=0;j<dim;j++){   
                 for (int k=0;k<dim;k++){
-                   sum = sum + matrix.getValueOf(i, k)*matrix.getValueOf(k, j);
+                   sum = sum + m1.getValueOf(i, k)*m2.getValueOf(k, j);
                 }  
                 adjMatrix.setEdge(i, j, sum);
                 sum = 0;
