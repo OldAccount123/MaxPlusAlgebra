@@ -13,11 +13,11 @@ public class Main {
         AdjacencyMatrix lowerValueMatrix = new AdjacencyMatrix(dimension); // matrix created by lowest number in the interval matrix.
         lowerValueMatrix.scanMatrix();
         lowerValueMatrix.printMatrix();*/
-        Matrix wm = new Matrix(dimension);
-        wm.scanMatrix();
-        wm.printMatrix();
-        KarpAlgorithm kA = new KarpAlgorithm(wm);
-        System.out.println("The eigenvalue of the matrix is: " + kA.getEigenvalue(wm));
+        Matrix weightMatrix = new Matrix(dimension);
+        weightMatrix.scanMatrix();
+        weightMatrix.printMatrix();
+        KarpAlgorithm kA = new KarpAlgorithm(weightMatrix);
+        System.out.println("The eigenvalue of the matrix is: " + kA.getEigenvalue(weightMatrix));
         
 	}
 }
