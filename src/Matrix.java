@@ -10,6 +10,7 @@ public class Matrix {
 
 	private int[][] matrix;
 	private int dimension;
+	private Scanner input;
 
 	/**
 	 * Creates a (dimension x dimension) null-matrix as a 2D array.
@@ -40,7 +41,7 @@ public class Matrix {
 	 * @param int col represents the columns of the matrix  
 	 */
 	public void scanMatrix() {
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 		int temp; // temporary value of scanned integer.
 		for (int row = 0; row < getDimension(); row++) {
 			for (int col = 0; col < getDimension(); col++) {
@@ -115,7 +116,6 @@ public class Matrix {
      public AdjacencyMatrix mulMatrix(Matrix m1 , Matrix m2){
     	 int dim = m1.getDimension(); //the dimension of the adjacency matrix
     	 AdjacencyMatrix adjMatrix = new AdjacencyMatrix(dim);  //a matrix to save the powered matrix to it  	
-    	 int sum = 0;  //a helping variable to save the sum of the multiplications
     	 //makes the row*column multiplications
     	 ArrayList<Double> list = new ArrayList<Double>();
     	 for (int i=0;i<dim;i++){

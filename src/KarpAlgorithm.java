@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
- 
+
 public class KarpAlgorithm {
     private Matrix matrix;
    
@@ -34,7 +33,7 @@ public class KarpAlgorithm {
       */
      public ArrayList<Matrix> multiplyMatrix(){
     	int dim = matrix.getDimension();    	//the dimension of the adjacency matrix
-    	ArrayList<Matrix> listOfMatrices = new ArrayList(); //the list to save the powered matrices 
+    	ArrayList<Matrix> listOfMatrices = new ArrayList<Matrix>(); //the list to save the powered matrices 
     	listOfMatrices.add(matrix);
     	Matrix temp = new Matrix(dim);
     	//temporary matrix to save the A, A^2, A^3, ... A^dim matrices to it;
