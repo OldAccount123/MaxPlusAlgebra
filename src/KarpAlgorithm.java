@@ -1,22 +1,21 @@
 import java.util.ArrayList;
-import java.util.List;
  
 public class KarpAlgorithm {
     private Matrix matrix;
+    private int dim;
    
     public KarpAlgorithm(Matrix matrix){
         this.matrix = matrix;
+        dim = matrix.getDimension();
     }
    
     /**
-     * This function returns nested list of first columns of the matrix A, A^2, A^3, ... A^dim-1;
-     * @param adjMatrix - adjacency matrix of a digraph.
+     * This function returns a list of first columns of the matrix A, A^2, A^3, ... A^dim-1;
      * returns nested list of a first columns of a digraph.
      */
-    public ArrayList<ArrayList<Double>> getCols(Matrix adjMatrix){
+    public ArrayList<ArrayList<Double>> getCols(){
         // a nested list to save the first columns of the powered matrices
-    	ArrayList<ArrayList<Double>> listOfCols = new ArrayList<ArrayList<Double>>();     
-    	int dim = adjMatrix.getDimension(); // the dimension of the adjacency matrix
+    	ArrayList<ArrayList<Double>> listOfCols = new ArrayList<ArrayList<Double>>();  
         for(int i=0;i<=dim;i++){
     		listOfCols.add(new ArrayList<Double>());
         	for(int j=0;j<dim;j++){
@@ -33,8 +32,7 @@ public class KarpAlgorithm {
       * @return ArrayList<Matrix> listOfMatrices - returns the list of matrices A, A^2, A^3, ... A^dim+1;
       */
      public ArrayList<Matrix> multiplyMatrix(){
-    	int dim = matrix.getDimension();    	//the dimension of the adjacency matrix
-    	ArrayList<Matrix> listOfMatrices = new ArrayList(); //the list to save the powered matrices 
+    	ArrayList<Matrix> listOfMatrices = new ArrayList<Matrix>(); //the list to save the powered matrices 
     	listOfMatrices.add(matrix);
     	Matrix temp = new Matrix(dim);
     	//temporary matrix to save the A, A^2, A^3, ... A^dim matrices to it;
@@ -44,19 +42,33 @@ public class KarpAlgorithm {
     		listOfMatrices.add(temp);
     		temp = temp.mulMatrix(temp, matrix);
     	}
-		return listOfMatrices;
-    	 
+		return listOfMatrices;    	 
+     }
+     
+     /**
+      * Don't know if it is needed
+      * Saves all the cycles of lengths 1,2,..,dim
+      * (calls the method multiplyMatrix which returns all the powered matrices and takes the diagonal values of it)
+      */
+     public ArrayList<ArrayList<Double>> getCriticalCycles(){
+    	 ArrayList<ArrayList<Double>> cycles = new ArrayList<ArrayList<Double>>(); // list to save all the critical cycles  
+    	 for(int i=0;i<dim;i++){
+    		 cycles.add(new ArrayList<Double>());
+    		 for(int j=0;j<dim;j++){
+	    		 cycles.get(i).add(multiplyMatrix().get(i).getValueOf(j, j));
+	    	 }
+    	 }
+    	 return cycles;    	 
      }
      
 
      
      /**
       * Calculates the eigenvalue of the matrix via column principle 
-      * @param matrix - the matrix to get the eigenvalue of 
       * @return - returns the eigenvalue of the input-matrix
       */
-     public double getEigenvalue(Matrix matrix){
-    	 int dim = matrix.getDimension();    //the dimension of the adjacency matrix
+     public double getEigenvalue(){
+    	 int dim = matrix.getDimension();    //the dimension of the  matrix
     	 ArrayList<Double> listOfMins = new ArrayList<Double>(); //list to save the minimum values 
     	 // temporary list to save the values to get the minimum of
     	 ArrayList<Double> temp = new ArrayList<Double>(); 
@@ -65,15 +77,12 @@ public class KarpAlgorithm {
     		 temp.clear(); 
 			 int k = dim;    		 
     		 for(int j=0;j<dim;j++){
-				 temp.add((getCols(matrix).get(dim).get(i) - getCols(matrix).get(j).get(i)) / (k));  
+				 temp.add((getCols().get(dim).get(i) - getCols().get(j).get(i)) / (k));  
 				 k--;
     		 }
-    		 listOfMins.add(matrix.getMin(temp));
-    		 
+    		 listOfMins.add(matrix.getMin(temp));    		 
     	 } 	    	 
-		 return matrix.getMax(listOfMins);
-    	 
+		 return matrix.getMax(listOfMins);    	 
      }
-
-    
+     
 }

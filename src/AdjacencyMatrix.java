@@ -1,6 +1,5 @@
-import java.util.Scanner;
- 
- /**
+
+/**
  * The class represents the adjacency matrix of the graph.
  */
  

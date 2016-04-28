@@ -10,10 +10,10 @@ public class Matrix {
 
 	private int[][] matrix;
 	private int dimension;
+	private Scanner input;
 
 	/**
-	 * Creates a (dimension x dimension) null-matrix as a 2D array.
-	 * @param int[][] matrix - null-matrix of dimension dimension        
+	 * Creates a (dimension x dimension) null-matrix as a 2D array.     
 	 * @param int dimension - dimension of the matrix       
 	 */
 	public Matrix(int dimension) {
@@ -27,7 +27,8 @@ public class Matrix {
 	}
 
 	/**
-	 * @return int Returns the dimension of the matrix.
+	 * Returns the dimension of the matrix
+	 * @return int - the dimension of the matrix.
 	 */
 	public int getDimension() {
 		return this.dimension;
@@ -36,19 +37,13 @@ public class Matrix {
 
 	/**
 	 * Scans a (dimension x dimension) matrix.
-	 * @param int row represents the rows of the matrix 
-	 * @param int col represents the columns of the matrix  
 	 */
 	public void scanMatrix() {
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 		int temp; // temporary value of scanned integer.
 		for (int row = 0; row < getDimension(); row++) {
 			for (int col = 0; col < getDimension(); col++) {
 				temp = input.nextInt();
-				/*while (temp != 0 && temp != 1) { //only ones and zeros are allowed in the adjacency matrix.												
-					System.out.println("Please enter a valid value");
-					temp = input.nextInt();
-				}*/
 				setEdge(row, col, temp);
 			}
 		}
@@ -68,7 +63,7 @@ public class Matrix {
 	 * Returns any needed value from the matrix
 	 * @param1 vertex1
 	 * @param2 vertex2
-	 * @return int The value of the dge between vertex1 and vertex2
+	 * @return double The weight of the edge between vertex1 and vertex2
 	 */
 	public double getValueOf(int vertex1, int vertex2) {
 		return matrix[vertex1][vertex2];
@@ -80,30 +75,30 @@ public class Matrix {
      * @return - returns the minimal value from the numbers
      */
     public double getMin(ArrayList<Double> list) {
-   	 double min;
+   	 double min; //variable to save the minimal value to it
 		 min = list.get(0);
    	 for(int i=1;i<list.size();i++){
    		 if (min > list.get(i)) {
    			 min = list.get(i);
    		 }
    	 }    
-		return min;
+	 return min;
 	 }
     
     /**
-     * Gets the maximal number from a set of numbers
+     * Gets the maximal number from a set of numbers 
      * @param list - list of numbers to get the maximum value of
      * @return - returns the maximal value from the numbers
      */
     public double getMax(ArrayList<Double> list) {
-   	 double max;
+   	 double max; //variable to save the maximal value to it
 		 max = list.get(0);
    	 for(int i=1;i<list.size();i++){
    		 if (max < list.get(i)) {
    			 max = list.get(i);
    		 }    		  	 	 
    	 }
-		return max;
+	 return max;
 	 }
 	
 	/**
@@ -112,10 +107,9 @@ public class Matrix {
      * @param2 m2 - the second matrix
      * @return Matrix  m1*m2
      */
-     public AdjacencyMatrix mulMatrix(Matrix m1 , Matrix m2){
+     public Matrix mulMatrix(Matrix m1 , Matrix m2){
     	 int dim = m1.getDimension(); //the dimension of the adjacency matrix
-    	 AdjacencyMatrix adjMatrix = new AdjacencyMatrix(dim);  //a matrix to save the powered matrix to it  	
-    	 int sum = 0;  //a helping variable to save the sum of the multiplications
+    	 Matrix matrix = new Matrix(dim);  //a matrix to save the powered matrix to it  
     	 //makes the row*column multiplications
     	 ArrayList<Double> list = new ArrayList<Double>();
     	 for (int i=0;i<dim;i++){
@@ -123,11 +117,11 @@ public class Matrix {
                 for (int k=0;k<dim;k++){
                    list.add(m1.getValueOf(i, k)+m2.getValueOf(k, j));
                 }  
-                adjMatrix.setEdge(i, j, getMax(list));
+                matrix.setEdge(i, j, getMax(list));
                 list.clear();
              }
           }
-		return adjMatrix; 
+		return matrix; 
      }
 
 
@@ -141,7 +135,7 @@ public class Matrix {
 		}
 	}
 
-	protected void setDimension(int dimension) {
+	private void setDimension(int dimension) {
 		this.dimension = dimension;
 	}
 
