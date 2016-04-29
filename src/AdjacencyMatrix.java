@@ -3,9 +3,7 @@
  */
  
 public class AdjacencyMatrix extends Matrix{
-
 	public AdjacencyMatrix(int dimension) {
 		super(dimension);
 	}
-
 }
