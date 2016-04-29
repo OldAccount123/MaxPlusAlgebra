@@ -7,11 +7,9 @@ import java.util.Scanner;
  */
 
 public class Matrix {
-
 	private int[][] matrix;
 	private int dimension;
 	private Scanner input;
-
 	/**
 	 * Creates a (dimension x dimension) null-matrix as a 2D array.     
 	 * @param int dimension - dimension of the matrix       
@@ -25,7 +23,6 @@ public class Matrix {
 			}
 		}
 	}
-
 	/**
 	 * Returns the dimension of the matrix
 	 * @return int - the dimension of the matrix.
@@ -34,7 +31,6 @@ public class Matrix {
 		return this.dimension;
 
 	}
-
 	/**
 	 * Scans a (dimension x dimension) matrix.
 	 */
@@ -48,7 +44,6 @@ public class Matrix {
 			}
 		}
 	}
-
 	/**
 	 * Sets the value of the edge between vertex1 and vertex2
 	 * @param int vertex1
@@ -58,7 +53,6 @@ public class Matrix {
 	public void setEdge(int vertex1, int vertex2, double value) {
 		matrix[vertex1][vertex2] = (int) value;
 	}
-
 	/**
 	 * Returns any needed value from the matrix
 	 * @param1 vertex1
@@ -68,13 +62,12 @@ public class Matrix {
 	public double getValueOf(int vertex1, int vertex2) {
 		return matrix[vertex1][vertex2];
 	}
-	
     /**
      * Gets the minimal number from a set of numbers
      * @param list - list of numbers to get the minimum value of
      * @return - returns the minimal value from the numbers
      */
-    public double getMin(ArrayList<Double> list) {
+     public double getMin(ArrayList<Double> list) {
    	 double min; //variable to save the minimal value to it
 		 min = list.get(0);
    	 for(int i=1;i<list.size();i++){
@@ -83,8 +76,7 @@ public class Matrix {
    		 }
    	 }    
 	 return min;
-	 }
-    
+      }
     /**
      * Gets the maximal number from a set of numbers 
      * @param list - list of numbers to get the maximum value of
@@ -99,9 +91,8 @@ public class Matrix {
    		 }    		  	 	 
    	 }
 	 return max;
-	 }
-	
-	/**
+    }
+     /**
      * Multiplies 2 matrices from the input
      * @param m1 - the matrix to be multiplied
      * @param2 m2 - the second matrix
@@ -122,9 +113,7 @@ public class Matrix {
              }
           }
 		return matrix; 
-     }
-
-
+       }
 	/**
 	 * Prints out the matrix as a 2D array.
 	 */
@@ -134,9 +123,7 @@ public class Matrix {
 			System.out.println(Arrays.toString(row));
 		}
 	}
-
 	private void setDimension(int dimension) {
 		this.dimension = dimension;
 	}
-
 }
