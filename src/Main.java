@@ -1,10 +1,15 @@
 import java.util.Scanner;
 
 public class Main {
+<<<<<<< HEAD
     private static Scanner input;
 
 	public static void main(String[] args){
         input = new Scanner(System.in);
+=======
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+>>>>>>> refs/remotes/origin/master
         System.out.println("Enter the dimension of the matrix");
         int dimension = input.nextInt(); // dimension of the matrix we want to check
         System.out.println("Enter upper values of the matrix");
@@ -15,6 +20,7 @@ public class Main {
         AdjacencyMatrix lowerValueMatrix = new AdjacencyMatrix(dimension); // matrix created by lowest number in the interval matrix.
         lowerValueMatrix.scanMatrix();
         lowerValueMatrix.printMatrix();*/
+<<<<<<< HEAD
         Matrix matrix = new Matrix(dimension);
         matrix.scanMatrix();
         matrix.printMatrix();
@@ -24,3 +30,13 @@ public class Main {
         
 	}
 }
+=======
+        Matrix weightMatrix = new Matrix(dimension);
+        weightMatrix.scanMatrix();
+        weightMatrix.printMatrix();
+        KarpAlgorithm kA = new KarpAlgorithm(weightMatrix);
+        System.out.println("The eigenvalue of the matrix is: " + kA.getEigenvalue(weightMatrix));
+        
+	}
+}
+>>>>>>> refs/remotes/origin/master
