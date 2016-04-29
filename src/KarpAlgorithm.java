@@ -68,7 +68,6 @@ public class KarpAlgorithm {
       * @return - returns the eigenvalue of the input-matrix
       */
      public double getEigenvalue(){
-    	 int dim = matrix.getDimension();    //the dimension of the  matrix
     	 ArrayList<Double> listOfMins = new ArrayList<Double>(); //list to save the minimum values 
     	 // temporary list to save the values to get the minimum of
     	 ArrayList<Double> temp = new ArrayList<Double>(); 
