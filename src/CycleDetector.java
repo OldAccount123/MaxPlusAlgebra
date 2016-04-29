@@ -1,11 +1,9 @@
 import java.util.ArrayList;
-
 /**
  * Class to work with cycles,finds critical cycles,etc.
  * NOT READY
  *
  */
-
 public class CycleDetector {
 	private boolean[] marked;
 	private boolean[] done;
