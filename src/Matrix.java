@@ -112,7 +112,7 @@ public class Matrix {
                 list.clear();
              }
           }
-		return matrix; 
+	return matrix; 
        }
 	/**
 	 * Prints out the matrix as a 2D array.
