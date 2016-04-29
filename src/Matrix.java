@@ -109,11 +109,7 @@ public class Matrix {
      */
      public Matrix mulMatrix(Matrix m1 , Matrix m2){
     	 int dim = m1.getDimension(); //the dimension of the adjacency matrix
-<<<<<<< HEAD
-    	 AdjacencyMatrix adjMatrix = new AdjacencyMatrix(dim);  //a matrix to save the powered matrix to it  	
-=======
     	 Matrix matrix = new Matrix(dim);  //a matrix to save the powered matrix to it  
->>>>>>> refs/heads/pr/20
     	 //makes the row*column multiplications
     	 ArrayList<Double> list = new ArrayList<Double>();
     	 for (int i=0;i<dim;i++){
