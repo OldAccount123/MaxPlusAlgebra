@@ -7,7 +7,6 @@ public class KarpAlgorithm {
         this.matrix = matrix;
         dim = matrix.getDimension();
     }
-   
     /**
      * This function returns a list of first columns of the matrix A, A^2, A^3, ... A^dim-1;
      * returns nested list of a first columns of a digraph.
@@ -23,7 +22,6 @@ public class KarpAlgorithm {
         }        
         return listOfCols;
     }
-
      /**
       * Takes a matrix from the input, creates a list of matrices and adds the powered matrices to it.
       * @return ArrayList<Matrix> listOfMatrices - returns the list of matrices A, A^2, A^3, ... A^dim+1;
