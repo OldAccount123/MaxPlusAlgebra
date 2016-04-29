@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/heads/pr/20
 /**
  * The class represents the adjacency matrix of the graph.
  */
