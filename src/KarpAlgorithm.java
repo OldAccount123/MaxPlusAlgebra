@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class KarpAlgorithm {
     private Matrix matrix;
     private int dim;
-   
     public KarpAlgorithm(Matrix matrix){
         this.matrix = matrix;
         dim = matrix.getDimension();
@@ -24,9 +23,7 @@ public class KarpAlgorithm {
         }        
         return listOfCols;
     }
-    
 
-    
      /**
       * Takes a matrix from the input, creates a list of matrices and adds the powered matrices to it.
       * @return ArrayList<Matrix> listOfMatrices - returns the list of matrices A, A^2, A^3, ... A^dim+1;
@@ -44,7 +41,6 @@ public class KarpAlgorithm {
     	}
 		return listOfMatrices;    	 
      }
-     
      /**
       * Don't know if it is needed
       * Saves all the cycles of lengths 1,2,..,dim
@@ -60,9 +56,6 @@ public class KarpAlgorithm {
     	 }
     	 return cycles;    	 
      }
-     
-
-     
      /**
       * Calculates the eigenvalue of the matrix via column principle 
       * @return - returns the eigenvalue of the input-matrix
@@ -83,5 +76,4 @@ public class KarpAlgorithm {
     	 } 	    	 
 		 return matrix.getMax(listOfMins);    	 
      }
-     
 }
