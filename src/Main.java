@@ -11,6 +11,5 @@ public class Main {
         weightMatrix.printMatrix();
         KarpAlgorithm kA = new KarpAlgorithm(weightMatrix);
         System.out.println("The eigenvalue of the matrix is: " + kA.getEigenvalue(weightMatrix));
-        
 	}
 }
