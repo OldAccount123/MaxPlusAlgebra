@@ -13,8 +13,6 @@ public class CycleDetector {
 	private boolean dagflag;
 	private Matrix matrix;
 	private int dim;
-	
-	
 	/**
 	 * function isn't ready, but it should find all the cycles in the digraph 
 	 * @param matrix
@@ -30,7 +28,6 @@ public class CycleDetector {
 			}
 		}
 	}
-	
 	public boolean search(Matrix matrix, int v){
 		marked[v] = true;
 		for(int w=0;w<dim;w++){
@@ -43,8 +40,6 @@ public class CycleDetector {
 		}
 		return true;
 	}
-	
-	
 	/**
 	 * Saves and returns a list of all cycles in the digraph
 	 * @return list of all cycles of the digraph
@@ -56,10 +51,8 @@ public class CycleDetector {
 				
 			}
 		}
-		
 		return cycles;
 	}
-	
 	/**
 	 * Finds the critical cycle/s of the graph by comparing the cycles average weight to the eigenvalue
 	 * @return list containing all the critical cycles of the digraph
@@ -76,7 +69,6 @@ public class CycleDetector {
                 criticalCycles.add(cycles.get(i)); 
             }
         }
-       
         return criticalCycles;
     }
 }
