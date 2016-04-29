@@ -7,7 +7,6 @@ import java.util.ArrayList;
  */
 
 public class CycleDetector {
-
 	private boolean[] marked;
 	private boolean[] done;
 	private boolean dagflag;
