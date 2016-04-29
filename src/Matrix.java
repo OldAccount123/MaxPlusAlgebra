@@ -29,7 +29,6 @@ public class Matrix {
 	 */
 	public int getDimension() {
 		return this.dimension;
-
 	}
 	/**
 	 * Scans a (dimension x dimension) matrix.
